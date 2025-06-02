@@ -12,8 +12,8 @@ jobs:
 
     env:
       AWS_REGION: us-east-1
-      ECR_WEBAPP_REPO: your-ecr-id.dkr.ecr.us-east-1.amazonaws.com/webapp
-      ECR_MYSQL_REPO: your-ecr-id.dkr.ecr.us-east-1.amazonaws.com/mysql
+      ECR_WEBAPP_REPO: 739037733198.dkr.ecr.us-east-1.amazonaws.com/clo835-webapp
+      ECR_MYSQL_REPO: 739037733198.dkr.ecr.us-east-1.amazonaws.com/clo835-mysql
 
     steps:
     - name: Checkout code
