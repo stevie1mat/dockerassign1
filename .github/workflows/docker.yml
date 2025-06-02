@@ -24,7 +24,6 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region: ${{ env.AWS_REGION }}
 
     - name: Log in to Amazon ECR
@@ -33,10 +32,10 @@ jobs:
 
     - name: Build and push Webapp image
       run: |
-        docker build -t $ECR_WEBAPP_REPO:latest .
+        docker build --no-cache -t $ECR_WEBAPP_REPO:latest .
         docker push $ECR_WEBAPP_REPO:latest
 
     - name: Build and push MySQL image
       run: |
-        docker build -f Dockerfile_mysql -t $ECR_MYSQL_REPO:latest .
+        docker build --no-cache -f Dockerfile_mysql -t $ECR_MYSQL_REPO:latest .
         docker push $ECR_MYSQL_REPO:latest
